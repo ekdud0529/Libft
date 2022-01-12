@@ -1,31 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 16:21:58 by daykim            #+#    #+#             */
-/*   Updated: 2021/12/23 16:21:58 by daykim           ###   ########.fr       */
+/*   Created: 2022/01/12 16:31:00 by daykim            #+#    #+#             */
+/*   Updated: 2022/01/12 16:31:00 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	int				index;
-	unsigned char	*d;
-	unsigned char	*s;
-
-	index = 0;
-	d = dest;
-	s = src;
-	while (index < n)
-	{
-		*(d + index) = s;
-		index++;
-		s++;
-	}
-	return (dest);
-}
