@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 16:31:00 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/12 16:31:00 by daykim           ###   ########.fr       */
+/*   Created: 2022/01/12 17:21:38 by daykim            #+#    #+#             */
+/*   Updated: 2022/01/12 17:21:38 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+char	*strchr(const char *str, int c)
 {
-	if ('a' <= c && c <= 'z')
+	char	*s;
+
+	s = str;
+	while (*s)
 	{
-		c += 32;
+		if(*s == c)
+		{
+			return (*s);
+		}
+		s++;
 	}
-	return (c);
+	return (0);
 }
