@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 15:56:28 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/12 15:56:28 by daykim           ###   ########.fr       */
+/*   Created: 2022/01/15 19:24:35 by daykim            #+#    #+#             */
+/*   Updated: 2022/01/15 19:24:35 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strrchr(const char *str, int c)
 {
 	char	*s;
-	size_t	cnt;
+	char	*find;
 
-	cnt = 0;
 	s = str;
-	while (s)
+	find = 0;
+	while (*s)
 	{
-		cnt++;
+		if(*s == c)
+		{
+			find = s;
+		}
 		s++;
 	}
-	return (cnt);
+	return (find);
 }

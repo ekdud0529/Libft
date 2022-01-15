@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 15:56:28 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/12 15:56:28 by daykim           ###   ########.fr       */
+/*   Created: 2022/01/15 19:27:08 by daykim            #+#    #+#             */
+/*   Updated: 2022/01/15 19:27:08 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	char	*s;
-	size_t	cnt;
+	int				index;
+	unsigned char	*s;
 
-	cnt = 0;
 	s = str;
-	while (s)
+	index = 0;
+	while (index++ < n)
 	{
-		cnt++;
-		s++;
+		if(*s == c)
+		{
+			return ((void *)s);
+		}
 	}
-	return (cnt);
+	return (0);
 }
