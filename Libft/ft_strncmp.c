@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 16:23:32 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/12 16:23:32 by daykim           ###   ########.fr       */
+/*   Created: 2022/01/16 18:02:27 by daykim            #+#    #+#             */
+/*   Updated: 2022/01/16 18:02:27 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dest, const char *src, size_t n)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	size_t			dest_len;
-	size_t			src_len;
-
-	dest_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
-	while (*dest)
-		dest++;
-	if (n <= dest_len)
-		return (n + src_len);
-	n -= (dest_len + 1);
-	while (n--)
+	if (n == 0)
+		return (0);
+	while(*str1 && *str2 && n--)
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		if(n != 0)
+		{
+			str1++;
+			str2++;
+		}
 	}
-	*dest = '\0';
-	return (dest_len + src_len);
+	return (*str1 - *str2);
 }

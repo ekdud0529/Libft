@@ -14,18 +14,16 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*s;
 	char	*find;
 
-	s = str;
 	find = 0;
-	while (*s)
+	while (*str)
 	{
-		if(*s == c)
+		if(*str == c)
 		{
-			find = s;
+			find = str;
 		}
-		s++;
+		str++;
 	}
 	return (find);
 }

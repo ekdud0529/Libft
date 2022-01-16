@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 16:23:32 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/12 16:23:32 by daykim           ###   ########.fr       */
+/*   Created: 2022/01/16 18:07:10 by daykim            #+#    #+#             */
+/*   Updated: 2022/01/16 18:07:10 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat(char *dest, const char *src, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t			dest_len;
-	size_t			src_len;
+	int			sign;
+	long long	num;
 
-	dest_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
-	while (*dest)
-		dest++;
-	if (n <= dest_len)
-		return (n + src_len);
-	n -= (dest_len + 1);
-	while (n--)
+	sign = 1;
+	num = 0;
+	while ((9 <= *str && *str <= 13) || *str == ' ')
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		str++;
 	}
-	*dest = '\0';
-	return (dest_len + src_len);
+	if (*str == "-" || *str == "+")
+	{
+		if(*str == '-')
+			sign = -1;
+		str++;
+	}
+	while ('0' <= *str && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	num *= sign;
+	return ((int)num);
 }
