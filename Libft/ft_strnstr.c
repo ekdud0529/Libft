@@ -14,25 +14,24 @@
 
 char	*ft_strnstr(const char *str, const char *substr, size_t n)
 {
-	int		index;
-	char	*s;
-	char	*sub;
+	int	index;
+	int	start;
+	int	sub_len;
 
-	index = 0;
-	if (n == 0 || !ft_strlen(substr))
+	if(!*substr)
 		return (str);
-	while (*str && index < n)
+	index = 0;
+	sub_len = ft_strlen(substr);
+	while (index < n - sub_len)
 	{
-		sub = substr;
-		s = str + index;
-		while(*sub && *s)
+		start = index;
+		while (str[start] && substr[start])
 		{
-			if(*sub != *s)
-				break ;
-			s++;
-			sub++;
+			if(str[start] != substr[start])
+				break;
+			start++;
 		}
-		if (*sub == '\0')
+		if(!substr[start])
 			return (str + index);
 		index++;
 	}
