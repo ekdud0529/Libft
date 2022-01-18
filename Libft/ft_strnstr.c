@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 19:35:33 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/15 19:35:33 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/18 15:42:51 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *str, const char *substr, size_t n)
 	int	start;
 	int	sub_len;
 
-	if(!*substr)
+	if (!*substr)
 		return (str);
 	index = 0;
 	sub_len = ft_strlen(substr);
@@ -27,11 +27,11 @@ char	*ft_strnstr(const char *str, const char *substr, size_t n)
 		start = index;
 		while (str[start] && substr[start])
 		{
-			if(str[start] != substr[start])
-				break;
+			if (str[start] != substr[start])
+				break ;
 			start++;
 		}
-		if(!substr[start])
+		if (!substr[start])
 			return (str + index);
 		index++;
 	}

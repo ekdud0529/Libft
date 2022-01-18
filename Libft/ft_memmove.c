@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 16:21:26 by daykim            #+#    #+#             */
-/*   Updated: 2021/12/23 16:21:26 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/18 15:48:30 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d = dest;
 	s = src;
-	if(d < s)
+	if (d < s)
 	{
 		index = 0;
 		while (index < n)

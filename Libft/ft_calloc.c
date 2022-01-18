@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 18:18:03 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/16 18:18:03 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/18 15:44:30 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t n, size_t size)
 {
 	void	*ptr;
-	
+
 	ptr = malloc(sizeof(size) * n);
 	if (!ptr)
 		return (NULL);

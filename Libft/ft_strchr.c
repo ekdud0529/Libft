@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:21:38 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/12 17:21:38 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/18 15:49:12 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strchr(const char *str, int c)
 {
 	while (*str)
 	{
-		if(*str == c)
+		if (*str == c)
 		{
 			return (*str);
 		}
