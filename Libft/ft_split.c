@@ -12,31 +12,69 @@
 
 #include "libft.h"
 
-int	get_word_cnt(char *, char);
+int		get_word_cnt(char *, char);
+char	*mk_str(int start, int end, char *str);
+void	str_free(char **, int);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	int		cnt_str;
-	int		index;
-	int		len;
+	size_t	cnt_str;
+	size_t	index;
+	size_t	i;
+	size_t	len;
 
 	cnt_str = get_word_cnt(s, c);
 	str = (char **)malloc(sizeof(char *) * (cnt_str + 1));
 	index = 0;
+	i = 0;
 	while (s[index])
 	{
-		len = 0;
-		while (s[index] == c)
-			index++;
+		while (s[index] && s[index++] == c)
 		len = index;
-		while (s[index] != c)
-			index++;
+		while (s[index] && s[index++] != c)
 		if (len < index)
 		{
-			
+			if(!(str[i] = mk_str(len, index, s)))
+				return (0);
+			i++;
 		}
 	}
+	str[i] = '\0';
+	return (str);
+}
+
+void	str_free(char **str, int index)
+{
+	while (index--)
+	{
+		free(str[index]);
+		str[index] = 0;
+	}
+	free(str);
+	str = 0;
+}
+
+char	*mk_str(int start, int end, char *str)
+{
+	char	*s;
+	int		i;
+
+	i = 0;
+	s = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (!s)
+	{
+		str_free(str, i);
+		return (0);
+	}
+	while (start < end)
+	{
+		s[i] = str[start];
+		start++;
+		i++;
+	}
+	s[i] = '\0';
+	return (s);
 }
 
 int	get_word_cnt(char *str, char c)
