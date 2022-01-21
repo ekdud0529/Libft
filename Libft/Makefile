@@ -17,8 +17,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
-LDFLAGS = -lc
-
 INCLUDES = ./libft.h
 
 SRCS = \
