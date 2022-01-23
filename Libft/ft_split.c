@@ -6,15 +6,15 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 18:10:28 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/18 18:10:28 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/23 15:19:59 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_word_cnt(char *, char);
+int		get_word_cnt(char *str, char c);
 char	*mk_str(int start, int end, char *str);
-void	str_free(char **, int);
+void	str_free(char **str, int index);
 
 char	**ft_split(char const *s, char c)
 {
