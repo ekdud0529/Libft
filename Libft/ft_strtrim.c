@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:18:34 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/18 16:18:34 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/23 15:16:49 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	front;
-	int	back;
+	int		front;
+	int		back;
 	char	*newstr;
 
 	if (!s1 || !set)

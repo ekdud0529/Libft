@@ -6,13 +6,13 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:16:04 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/19 16:16:04 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/23 15:14:54 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	get_num_len(int);
+int	get_num_len(int n);
 
 char	*ft_itoa(int n)
 {
@@ -46,7 +46,7 @@ char	*ft_itoa(int n)
 int	get_num_len(int n)
 {
 	int	len;
-	
+
 	len = 0;
 	while (n)
 	{
