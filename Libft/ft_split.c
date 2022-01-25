@@ -24,7 +24,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	len;
 
-	cnt_str = get_word_cnt(s, c);
+	cnt_str = get_word_cnt((char *)s, c);
 	str = (char **)malloc(sizeof(char *) * (cnt_str + 1));
 	index = 0;
 	i = 0;
@@ -36,11 +36,14 @@ char	**ft_split(char const *s, char c)
 		while (s[index] && s[index] != c)
 			index++;
 		if (len < index)
-			str[i++] = mk_str(len, index, s);
+			str[i++] = mk_str(len, index, (char *)s);
 		if (!str[i - 1])
+		{
+			str_free(str, i);
 			return (0);
+		}
 	}
-	str[i] = '\0';
+	str[i] = 0;
 	return (str);
 }
 
@@ -64,7 +67,6 @@ char	*mk_str(int start, int end, char *str)
 	s = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!s)
 	{
-		str_free(str, i);
 		return (0);
 	}
 	while (start < end)
