@@ -22,18 +22,18 @@ char	*ft_itoa(int n)
 	int			len;
 
 	sign = 1;
+	len = get_num_len(num);
 	if (n < 0)
 	{
 		sign = -1;
 		num *= -1;
+		str[0] = '-';
 	}
-	len = get_num_len(num);
 	if (sign < 0)
 		len++;
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (0);
-	if (sign < 0)
-		str[0] = '-';
 	str[len] = '\0';
 	while (n && --len)
 	{
@@ -48,6 +48,8 @@ int	get_num_len(int n)
 	int	len;
 
 	len = 0;
+	if (n < 0)
+		n *= -1;
 	while (n)
 	{
 		len++;
