@@ -15,6 +15,7 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+AR = ar rcs
 RM = rm -rf
 
 INCLUDES = ./libft.h
@@ -37,15 +38,14 @@ OBJS_B = $(SRCS_B:.c=.o)
 
 all : $(NAME)
 
-%.o : %.c
+.c.o : $(SRCS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all_OBJS = $(OBJS)
+bonus : $(OBJS) $(OBJS_B)
+	$(AR) $(NAME) $^
 
-bonus : $(all_OBJS) = $(OBJS) $(OBJS_B)
-
-$(NAME) : $(all_OBJS)
-	ar rcv $@ $^	
+$(NAME) : $(OBJS)
+	$(AR) $@ $^	
 
 clean :
 	$(RM) $(OBJS) $(OBJS_B)
@@ -53,6 +53,6 @@ clean :
 fclean : clean
 	$(RM) $(NAME)
 
-re : fclean all
+re : clean all
 
 .PHONY: all clean fclean re bonus
