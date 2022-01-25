@@ -32,13 +32,20 @@ SRCS_B = \
 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstadd_back.c\
 	ft_lstdelone.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-OBJS = $(SRCS:.c = .o)
-OBJS_B = $(SRCS_B:.c = .o)
+OBJS = $(SRCS:.c=.o)
+OBJS_B = $(SRCS_B:.c=.o)
 
 all : $(NAME)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+all_OBJS = $(OBJS)
+
+bonus : $(all_OBJS) = $(OBJS) $(OBJS_B)
+
+$(NAME) : $(all_OBJS)
+	ar rcv $@ $^	
 
 clean :
 	$(RM) $(OBJS) $(OBJS_B)
@@ -47,11 +54,5 @@ fclean : clean
 	$(RM) $(NAME)
 
 re : fclean all
-
-$(NAME) : $(OBJS)
-	ar -rcv $@ $^
-
-bonus : $(OBJS) $(OBJS_B)
-	ar rcv $(NAME) $(NAME) $^
 
 .PHONY: all clean fclean re bonus
