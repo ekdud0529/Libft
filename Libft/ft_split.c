@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 18:10:28 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/23 15:19:59 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/25 19:00:39 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	**ft_split(char const *s, char c)
 			index++;
 		if (len < index)
 			str[i++] = mk_str(len, index, s);
-		if(!str[i - 1])
+		if (!str[i - 1])
 			return (0);
 	}
 	str[i] = '\0';
