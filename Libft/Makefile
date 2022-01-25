@@ -49,9 +49,9 @@ fclean : clean
 re : fclean all
 
 $(NAME) : $(OBJS)
-	ar rcv $@ $^
+	ar -rcv $@ $^
 
 bonus : $(OBJS) $(OBJS_B)
 	ar rcv $(NAME) $(NAME) $^
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
