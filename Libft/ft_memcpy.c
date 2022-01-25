@@ -14,16 +14,16 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int				index;
+	size_t			index;
 	unsigned char	*d;
 	unsigned char	*s;
 
 	index = 0;
-	d = dest;
-	s = src;
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
 	while (index < n)
 	{
-		*(d + index) = s;
+		*(d + index) = *s;
 		index++;
 		s++;
 	}

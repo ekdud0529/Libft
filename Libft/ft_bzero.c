@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *ptr, size_t n)
 {
-	int	index;
+	size_t	index;
 
 	index = 0;
 	while (index < n)
@@ -22,5 +22,4 @@ void	ft_bzero(void *ptr, size_t n)
 		*((unsigned char *)ptr + index) = 0;
 		index++;
 	}
-	return (ptr);
 }
