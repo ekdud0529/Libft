@@ -30,15 +30,15 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (s[index])
 	{
-		while (s[index] && s[index++] == c)
+		while (s[index] && s[index] == c)
+			index++;
 		len = index;
-		while (s[index] && s[index++] != c)
+		while (s[index] && s[index] != c)
+			index++;
 		if (len < index)
-		{
-			if(!(str[i] = mk_str(len, index, s)))
-				return (0);
-			i++;
-		}
+			str[i++] = mk_str(len, index, s);
+		if(!str[i - 1])
+			return (0);
 	}
 	str[i] = '\0';
 	return (str);
