@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:23:32 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/18 15:45:00 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/26 19:33:22 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 	size_t			src_len;
 
 	dest_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
+	src_len = ft_strlen((char *)src);
 	while (*dest)
 		dest++;
 	if (n <= dest_len)
