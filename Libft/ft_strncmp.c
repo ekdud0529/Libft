@@ -6,7 +6,7 @@
 /*   By: daykim <daykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 18:02:27 by daykim            #+#    #+#             */
-/*   Updated: 2022/01/18 15:45:44 by daykim           ###   ########.fr       */
+/*   Updated: 2022/01/26 20:04:10 by daykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	{
 		if (*str1 != *str2)
 			return (*str1 - *str2);
-		if (n != 0)
+		if (n > 1)
 		{
 			str1++;
 			str2++;
