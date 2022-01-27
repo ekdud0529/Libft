@@ -20,7 +20,7 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	while (*(str1 + index) && *(str2 + index) && (index < n))
 	{
 		if (*(str1 + index) != *(str2 + index))
-			return (*((unsigned char)str1 + index) - *((unsigned char)str2 + index));
+			return (*(str1 + index) - *(str2 + index));
 		index++;
 	}
 	return (0);
