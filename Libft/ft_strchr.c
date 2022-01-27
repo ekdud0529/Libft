@@ -21,7 +21,7 @@ char	*ft_strchr(const char *str, int c)
 	{
 		if (*(str + index) == c)
 		{
-			return (str + index);
+			return ((char *)str + index);
 		}
 		index++;
 	}
