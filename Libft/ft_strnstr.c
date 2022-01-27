@@ -16,18 +16,16 @@ char	*ft_strnstr(const char *str, const char *substr, size_t n)
 {
 	size_t	index;
 	size_t	start;
-	size_t	sub_len;
 
 	if (!substr)
 		return ((char *)str);
 	index = 0;
-	sub_len = ft_strlen(substr);
 	while (*(str + index) && (index < n))
 	{
-		start = index;
-		while (str[start] && substr[start] && (start < n))
+		start = 0;
+		while (str[index + start] && substr[start] && (start < n))
 		{
-			if (str[start] != substr[start])
+			if (str[index + start] != substr[start])
 				break ;
 			start++;
 		}
