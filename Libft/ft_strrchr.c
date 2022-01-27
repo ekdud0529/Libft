@@ -23,7 +23,7 @@ char	*ft_strrchr(const char *str, int c)
 	{
 		if (*(str + index) == c)
 		{
-			find = (char *)(str + index);
+			find = ((char *)str + index);
 		}
 		index++;
 	}
