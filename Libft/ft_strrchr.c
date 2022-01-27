@@ -15,15 +15,17 @@
 char	*ft_strrchr(const char *str, int c)
 {
 	char	*find;
+	int		index;
 
 	find = 0;
-	while (*str)
+	index = 0;
+	while (*(str + index))
 	{
 		if (*str == c)
 		{
-			find = (char *)str;
+			find = (char *)(str + index);
 		}
-		str++;
+		index++;
 	}
 	return (find);
 }

@@ -21,9 +21,9 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	index = 0;
 	while (index < n)
 	{
-		if (*s == c)
+		if (*(s + index) == c)
 		{
-			return ((void *)s);
+			return ((void *)(s + index));
 		}
 		index++;
 	}
