@@ -23,8 +23,6 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	{
 		if (*(str1 + index) != *(str2 + index))
 			return (*(str1 + index) - *(str2 + index));
-		if (n > 1)
-			index++;
 	}
-	return (*(str1 + index) - *(str2 + index));
+	return (0);
 }
