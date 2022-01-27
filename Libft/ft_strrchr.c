@@ -27,5 +27,7 @@ char	*ft_strrchr(const char *str, int c)
 		}
 		index++;
 	}
+	if ((char)c == '\0')
+		return ((char *)str + index);
 	return (find);
 }
