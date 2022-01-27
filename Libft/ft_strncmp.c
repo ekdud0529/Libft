@@ -16,13 +16,12 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
 	int	index;
 
-	if (n == 0)
-		return (0);
 	index = 0;
-	while (*(str1 + index) && *(str2 + index) && n--)
+	while (*(str1 + index) && *(str2 + index) && (index < n))
 	{
 		if (*(str1 + index) != *(str2 + index))
 			return (*(str1 + index) - *(str2 + index));
+		index++;
 	}
 	return (0);
 }
