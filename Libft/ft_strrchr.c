@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *str, int c)
 	index = 0;
 	while (*(str + index))
 	{
-		if (*str == c)
+		if (*(str + index) == c)
 		{
 			find = (char *)(str + index);
 		}
