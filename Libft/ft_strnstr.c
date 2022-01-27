@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *str, const char *substr, size_t n)
 	while (*(str + index) && (index < n))
 	{
 		start = 0;
-		while (str[index + start] && substr[start] && (start < n))
+		while (str[index + start] && substr[start] && (index + start < n))
 		{
 			if (str[index + start] != substr[start])
 				break ;
