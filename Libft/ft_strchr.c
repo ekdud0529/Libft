@@ -19,7 +19,7 @@ char	*ft_strchr(const char *str, int c)
 	index = 0;
 	while (*(str + index))
 	{
-		if (*(str + index) == c)
+		if (*(str + index) == (char)c)
 		{
 			return ((char *)str + index);
 		}
