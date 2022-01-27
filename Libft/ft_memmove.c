@@ -27,15 +27,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		index = 0;
 		while (index < n)
 		{
-			*(d + index) = *(s + index++);
+			*(d + index) = *(s + index);
+			index++;
 		}
 	}
 	else
 	{
-		index = n;
-		while (index-- >= 0)
+		while (n-- >= 0)
 		{
-			*(d + index) = *(s + index);
+			*(d + n) = *(s + n;
 		}
 	}
 	return (dest);
