@@ -23,12 +23,12 @@ char	*ft_strdup(const char *s)
 	if (!str)
 		return (0);
 	index = 0;
-	while (*str)
+	while (*(str + index))
 	{
 		*str = *(s + index);
 		str++;
 		index++;
 	}
-	*str = '\0';
+	*(str + index) = '\0';
 	return (str);
 }
