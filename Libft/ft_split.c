@@ -102,6 +102,7 @@ int	get_word_cnt(char *str, char c)
 			str++;
 		if (!(*str))
 			break ;
+		cnt++;
 	}
 	return (cnt);
 }
