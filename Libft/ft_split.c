@@ -13,7 +13,7 @@
 #include "libft.h"
 
 int		get_word_cnt(char *str, char c);
-char	*mk_str(int start, int end, char *str);
+char	*ft_mk_str(int start, int end, char *str);
 void	str_free(char **str, int index);
 void	mk_word(char **str, char *s, char c);
 
@@ -47,7 +47,7 @@ void	mk_word(char **str, char *s, char c)
 			break ;
 		while (s[end] && (s[end] != c))
 			end++;
-		str[i] = mk_str(start, end, (char *)s);
+		str[i] = ft_mk_str(start, end, (char *)s);
 		if (!str[i])
 		{
 			str_free(str, i);
@@ -71,7 +71,7 @@ void	str_free(char **str, int index)
 	str = 0;
 }
 
-char	*mk_str(int start, int end, char *str)
+char	*ft_mk_str(int start, int end, char *str)
 {
 	char	*s;
 	int		i;
