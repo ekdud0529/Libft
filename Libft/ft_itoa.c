@@ -48,22 +48,21 @@ int	get_num_len(long long n)
 		n *= -1;
 	while (n)
 	{
-		len++;
 		n /= 10;
+		len++;
 	}
 	return (len);
 }
 
 void	mk_str(char *str, int len, long long num)
 {
+	str[len] = '\0';
 	if (num == 0)
 	{
-		*str = 0;
-		*(str + 1) = '\0';
+		str[len - 1] = 0 + '0';
 	}
 	else
 	{
-		str[len] = '\0';
 		while (num && --len)
 		{
 			str[len] = (num % 10) + '0';
