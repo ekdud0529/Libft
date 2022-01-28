@@ -24,7 +24,7 @@ char	**ft_split(char const *s, char c)
 
 	cnt_str = get_word_cnt((char *)s, c);
 	str = (char **)malloc(sizeof(char *) * (cnt_str + 1));
-	mk_word(str, s, c);
+	mk_word(str, (char *)s, c);
 	return (str);
 }
 
