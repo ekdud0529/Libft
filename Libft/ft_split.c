@@ -38,16 +38,16 @@ void	mk_word(char **str, char *s, char c)
 	i = 0;
 	while (s[index])
 	{
-		while (s[index] && s[index] == c)
+		while (s[index] && (s[index] == c))
 			index++;
 		len = index;
-		while (s[index] && s[index] != c)
+		while (s[index] && (s[index] != c))
 			index++;
 		if (len < index)
-			str[i] = mk_str(len, i, (char *)s);
+			str[i] = mk_str(len, index, (char *)s);
 		if (!str[i])
 		{
-			str_free(str, i - 1);
+			str_free(str, i);
 			return ;
 			i++;
 		}
