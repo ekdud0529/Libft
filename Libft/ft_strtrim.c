@@ -21,10 +21,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (0);
 	front = 0;
-	while (ft_strchr(set, s1[front]))
+	while (s1[front] && ft_strchr(set, s1[front]))
 		front++;
-	back = ft_strlen(s1) - 1;
-	while ((back > front) && ft_strchr(set, s1[back]))
+	back = ft_strlen(s1);
+	while ((back > front) && ft_strchr(set, s1[back - 1]))
 		back--;
 	newstr = (char *)malloc(sizeof(char) * (back - front + 1));
 	if (!newstr)
