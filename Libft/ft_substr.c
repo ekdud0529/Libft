@@ -21,13 +21,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!(*s))
 		return (0);
+	s_len = ft_strlen(s);
+	if (start > s_len)
+		len = 0;
+	else if (len > s_len - start)
+		len = s_len - start;
 	substr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (0);
-	s_len = ft_strlen(s);
 	max_len = len + start;
 	i = 0;
-	while (*(s + start) && (start < s_len) && (start < max_len))
+	while (*(s + start) && (start < max_len))
 	{
 		substr[i++] = *(s + start);
 		start++;
