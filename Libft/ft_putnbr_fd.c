@@ -18,7 +18,7 @@ void	ft_putnbr_fd(int n, int fd)
 	long long	num;
 	int			index;
 
-	if (fd > 0)
+	if (0 < fd)
 	{
 		num = n;
 		if (n < 0)
@@ -28,7 +28,7 @@ void	ft_putnbr_fd(int n, int fd)
 		}
 		index = 0;
 		if (num == 0)
-			nums[index++] = '0';
+			nums[index++] = 0;
 		while (num)
 		{
 			nums[index++] = num % 10;
