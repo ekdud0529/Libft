@@ -12,13 +12,48 @@
 
 #include "libft.h"
 
+int	get_num_len(long long n);
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
+	char		*str;
+	int			len;
+	long long	num;
 
-	if (fd > 0)
+	if (fd < 0)
+		return ;
+	num = n;
+	len = get_num_len(num);
+	if (n < 0)
 	{
-		str = ft_itoa(n);
-		ft_putstr_fd(str, fd);
+		num *= -1;
+		len++;
 	}
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	str[len] = '\0';
+	while (num && --len)
+	{
+		str[len] = (num % 10) + '0';
+		num /= 10;
+	}
+	if (n < 0)
+		str[0] = '-';
+	ft_putstr_fd(str, fd);
+}
+
+int	get_num_len(long long n)
+{
+	int	len;
+
+	len = 0;
+	if (n < 0)
+		n *= -1;
+	while (n)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
 }
