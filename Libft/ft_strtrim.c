@@ -21,12 +21,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (0);
 	front = 0;
-	while (s1[front] && ft_strchr(set, s1[front]))
+	while (ft_strchr(set, s1[front]))
 		front++;
 	back = ft_strlen(s1) - 1;
-	while (s1[back] && ft_strchr(set, s1[back]) && (back > front))
+	while ((back > front) && ft_strchr(set, s1[back]))
 		back--;
-	newstr = (char *)malloc(sizeof(char) * (back - front + 2));
+	newstr = (char *)malloc(sizeof(char) * (back - front + 1));
 	if (!newstr)
 		return (0);
 	ft_strlcpy(newstr, &s1[front], back - front + 1);
