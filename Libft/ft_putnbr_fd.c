@@ -12,15 +12,13 @@
 
 #include "libft.h"
 
-int	get_num_len(long long n);
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	int			nums[10];
 	long long	num;
 	int			index;
 
-	if (fd < 0)
+	if (fd > 0)
 	{
 		num = n;
 		if (n < 0)
@@ -37,7 +35,7 @@ void	ft_putnbr_fd(int n, int fd)
 		}
 		while (index--)
 		{
-			ft_putchar_fd(nums[index] + '0', fd);
+			ft_putchar_fd((nums[index] + '0'), fd);
 		}
 	}
 }
