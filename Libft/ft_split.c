@@ -44,11 +44,12 @@ void	mk_word(char **str, char *s, char c)
 		while (s[index] && s[index] != c)
 			index++;
 		if (len < index)
-			str[i++] = mk_str(len, i, (char *)s);
-		if (!str[i - 1])
+			str[i] = mk_str(len, i, (char *)s);
+		if (!str[i])
 		{
 			str_free(str, i - 1);
 			return ;
+			i++;
 		}
 	}
 	str[i] = 0;
