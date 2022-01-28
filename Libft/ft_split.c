@@ -60,10 +60,11 @@ void	mk_word(char **str, char *s, char c)
 
 void	str_free(char **str, int index)
 {
-	while (index--)
+	while (index)
 	{
 		free(str[index]);
 		str[index] = 0;
+		index--;
 	}
 	free(str);
 	str = 0;
