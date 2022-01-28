@@ -44,7 +44,7 @@ void	mk_word(char **str, char *s, char c)
 			end++;
 		start = end;
 		if (!s[end])
-			break;
+			break ;
 		while (s[end] && (s[end] != c))
 			end++;
 		str[i] = mk_str(start, end, (char *)s);
