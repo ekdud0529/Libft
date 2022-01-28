@@ -100,7 +100,8 @@ int	get_word_cnt(char *str, char c)
 			str++;
 		while (*str && *str != c)
 			str++;
-		cnt++;
+		if (!(*str))
+			cnt++;
 	}
 	return (cnt);
 }
