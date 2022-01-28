@@ -63,7 +63,7 @@ void	mk_str(char *str, int len, long long num)
 	}
 	else
 	{
-		while (num && --len)
+		while (num && len--)
 		{
 			str[len] = (num % 10) + '0';
 			num /= 10;
