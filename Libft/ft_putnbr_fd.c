@@ -16,44 +16,28 @@ int	get_num_len(long long n);
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char		*str;
-	int			len;
+	int			nums[10];
 	long long	num;
+	int			index;
 
 	if (fd < 0)
-		return ;
-	num = n;
-	len = get_num_len(num);
-	if (n < 0)
 	{
-		num *= -1;
-		len++;
+		num = n;
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			num *= -1;
+		}
+		index = 0;
+		while (num)
+		{
+			nums[index] = num % 10;
+			num /= 10;
+			index++;
+		}
+		while (index--)
+		{
+			ft_putchar_fd(nums[index] + '0', fd);
+		}
 	}
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (0);
-	str[len] = '\0';
-	while (num && --len)
-	{
-		str[len] = (num % 10) + '0';
-		num /= 10;
-	}
-	if (n < 0)
-		str[0] = '-';
-	ft_putstr_fd(str, fd);
-}
-
-int	get_num_len(long long n)
-{
-	int	len;
-
-	len = 0;
-	if (n < 0)
-		n *= -1;
-	while (n)
-	{
-		len++;
-		n /= 10;
-	}
-	return (len);
 }
