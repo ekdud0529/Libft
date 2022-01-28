@@ -34,6 +34,8 @@ void	mk_word(char **str, char *s, char c)
 	size_t	i;
 	size_t	len;
 
+	index = 0;
+	i = 0;
 	while (s[index])
 	{
 		while (s[index] && s[index] == c)
@@ -46,7 +48,7 @@ void	mk_word(char **str, char *s, char c)
 		if (!str[i - 1])
 		{
 			str_free(str, i - 1);
-			return (0);
+			return ;
 		}
 	}
 	str[i] = 0;
