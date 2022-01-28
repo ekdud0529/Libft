@@ -98,10 +98,10 @@ int	get_word_cnt(char *str, char c)
 	{
 		while (*str && *str == c)
 			str++;
-		while (*str && *str != c)
-			str++;
 		if (!(*str))
 			break ;
+		while (*str && *str != c)
+			str++;
 		cnt++;
 	}
 	return (cnt);
