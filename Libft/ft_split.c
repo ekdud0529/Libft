@@ -50,11 +50,12 @@ void	mk_word(char **str, char *s, char c)
 		if (!str[i])
 		{
 			str_free(str, i);
-			return ;
+			break ;
 		}
 		i++;
 	}
 	str[i] = 0;
+	return ;
 }
 
 void	str_free(char **str, int index)
@@ -76,7 +77,7 @@ char	*mk_str(int start, int end, char *str)
 	s = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!s)
 		return (0);
-	i = 0;	
+	i = 0;
 	while (start < end)
 	{
 		s[i] = str[start];
