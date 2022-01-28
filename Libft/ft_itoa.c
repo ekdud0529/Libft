@@ -13,6 +13,7 @@
 #include "libft.h"
 
 int	get_num_len(long long n);
+void	mk_str(char *str, int len, long long num);
 
 char	*ft_itoa(int n)
 {
@@ -30,14 +31,9 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (0);
-	str[len--] = '\0';
-	while (num && len--)
-	{
-		str[len] = (num % 10) + '0';
-		num /= 10;
-	}
+	mk_str(str, len, num);
 	if (n < 0)
-		str[len] = '-';
+		str[0] = '-';
 	return (str);
 }
 
@@ -45,6 +41,8 @@ int	get_num_len(long long n)
 {
 	int	len;
 
+	if (n == 0)
+		return 1;
 	len = 0;
 	if (n < 0)
 		n *= -1;
@@ -54,4 +52,19 @@ int	get_num_len(long long n)
 		n /= 10;
 	}
 	return (len);
+}
+
+void	mk_str(char *str, int len, long long num)
+{
+	if (num == 0)
+	{
+		*str = 0;
+		*(str + 1) = '\0';
+	}
+	str[len] = '\0';
+	while (num && --len)
+	{
+		str[len] = (num % 10) + '0';
+		num /= 10;
+	}
 }
