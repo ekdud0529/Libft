@@ -26,12 +26,13 @@ void	ft_putnbr_fd(int n, int fd)
 			ft_putchar_fd('-', fd);
 			num *= -1;
 		}
+		if (n == 0)
+			ft_putnbr_fd('0', fd);
 		index = 0;
 		while (num)
 		{
-			nums[index] = num % 10;
+			nums[index++] = num % 10;
 			num /= 10;
-			index++;
 		}
 		while (index--)
 		{
