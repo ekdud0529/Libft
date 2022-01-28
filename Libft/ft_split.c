@@ -24,33 +24,35 @@ char	**ft_split(char const *s, char c)
 
 	cnt_str = get_word_cnt((char *)s, c);
 	str = (char **)malloc(sizeof(char *) * (cnt_str + 1));
+	if (!str)
+		return (0);
 	mk_word(str, (char *)s, c);
 	return (str);
 }
 
 void	mk_word(char **str, char *s, char c)
 {
-	size_t	index;
+	size_t	end;
 	size_t	i;
-	size_t	len;
+	size_t	start;
 
-	index = 0;
+	end = 0;
 	i = 0;
-	while (s[index])
+	while (s[end])
 	{
-		while (s[index] && (s[index] == c))
-			index++;
-		len = index;
-		while (s[index] && (s[index] != c))
-			index++;
-		if (len < index)
-			str[i] = mk_str(len, index, (char *)s);
+		while (s[end] && (s[end] == c))
+			end++;
+		start = end;
+		while (s[end] && (s[end] != c))
+			end++;
+		if (start < end)
+			str[i] = mk_str(start, end, (char *)s);
 		if (!str[i])
 		{
 			str_free(str, i);
 			return ;
-			i++;
 		}
+		i++;
 	}
 	str[i] = 0;
 }
@@ -71,12 +73,10 @@ char	*mk_str(int start, int end, char *str)
 	char	*s;
 	int		i;
 
-	i = 0;
 	s = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!s)
-	{
 		return (0);
-	}
+	i = 0;	
 	while (start < end)
 	{
 		s[i] = str[start];
@@ -94,9 +94,9 @@ int	get_word_cnt(char *str, char c)
 	cnt = 0;
 	while (*str)
 	{
-		while (*str == c)
+		while (*str && *str == c)
 			str++;
-		while (*str != c)
+		while (*str && *str != c)
 			str++;
 		cnt++;
 	}
