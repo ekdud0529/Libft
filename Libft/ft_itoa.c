@@ -30,14 +30,14 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (0);
-	str[len] = '\0';
-	while (num && --len)
+	str[len--] = '\0';
+	while (num && len--)
 	{
 		str[len] = (num % 10) + '0';
 		num /= 10;
 	}
 	if (n < 0)
-		str[0] = '-';
+		str[len] = '-';
 	return (str);
 }
 
