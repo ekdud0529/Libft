@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	max_len;
 	int		i;
 
-	if (!s)
+	if (!(*s))
 		return (0);
 	substr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!substr)
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	s_len = ft_strlen(s);
 	max_len = len + start;
 	i = 0;
-	while ((start < s_len) && (start < max_len))
+	while (*(s + start) && (start < s_len) && (start < max_len))
 	{
 		substr[i++] = *(s + start);
 		start++;

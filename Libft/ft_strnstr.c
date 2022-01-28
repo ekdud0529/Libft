@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *str, const char *substr, size_t n)
 	size_t	index;
 	size_t	start;
 
-	if (!substr)
+	if (!(*substr))
 		return ((char *)str);
 	index = 0;
 	while (*(str + index) && (index < n))
