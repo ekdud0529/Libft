@@ -15,19 +15,25 @@
 int		get_word_cnt(char *str, char c);
 char	*mk_str(int start, int end, char *str);
 void	str_free(char **str, int index);
+void	mk_word(char **str, char *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	size_t	cnt_str;
+
+	cnt_str = get_word_cnt((char *)s, c);
+	str = (char **)malloc(sizeof(char *) * (cnt_str + 1));
+	mk_word(str, s, c);
+	return (str);
+}
+
+void	mk_word(char **str, char *s, char c)
+{
 	size_t	index;
 	size_t	i;
 	size_t	len;
 
-	cnt_str = get_word_cnt((char *)s, c);
-	str = (char **)malloc(sizeof(char *) * (cnt_str + 1));
-	index = 0;
-	i = 0;
 	while (s[index])
 	{
 		while (s[index] && s[index] == c)
@@ -39,12 +45,11 @@ char	**ft_split(char const *s, char c)
 			str[i++] = mk_str(len, index, (char *)s);
 		if (!str[i - 1])
 		{
-			str_free(str, i);
+			str_free(str, i - 1);
 			return (0);
 		}
 	}
 	str[i] = 0;
-	return (str);
 }
 
 void	str_free(char **str, int index)
