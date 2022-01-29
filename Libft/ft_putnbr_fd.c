@@ -14,29 +14,26 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int			nums[10];
-	long long	num;
-	int			index;
+	int nums[10];
+	long long num;
+	int index;
 
-	if (0 < fd)
+	num = n;
+	if (n < 0)
 	{
-		num = n;
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			num *= -1;
-		}
-		index = 0;
-		if (num == 0)
-			nums[index++] = 0;
-		while (num)
-		{
-			nums[index++] = num % 10;
-			num /= 10;
-		}
-		while (index--)
-		{
-			ft_putchar_fd((nums[index] + '0'), fd);
-		}
+		ft_putchar_fd('-', fd);
+		num *= -1;
+	}
+	index = 0;
+	if (num == 0)
+		nums[index++] = 0;
+	while (num)
+	{
+		nums[index++] = num % 10;
+		num /= 10;
+	}
+	while (index--)
+	{
+		ft_putchar_fd((nums[index] + '0'), fd);
 	}
 }
