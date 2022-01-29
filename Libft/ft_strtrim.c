@@ -18,8 +18,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		back;
 	char	*newstr;
 
-	if (!s1 || !set)
-		return (0);
 	front = 0;
 	while (s1[front] && ft_strchr(set, s1[front]))
 		front++;

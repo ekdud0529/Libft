@@ -20,7 +20,9 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	num = 0;
 	while ((9 <= *str && *str <= 13) || *str == ' ')
+	{
 		str++;
+	}
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
@@ -33,9 +35,5 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	num *= sign;
-	if ((sign == 1) && (num > 2147483647))
-		return (-1);
-	else if ((sign == -1) && (num < -2147483648))
-		return (0);
 	return ((int)num);
 }

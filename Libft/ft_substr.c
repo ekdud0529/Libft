@@ -19,8 +19,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	max_len;
 	int		i;
 
-	if (!(*s))
-		return (0);
 	s_len = ft_strlen(s);
 	if (start > s_len)
 		len = 0;
