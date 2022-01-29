@@ -18,19 +18,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*head;
 
 	head = 0;
-	if (lst && f)
+	while (lst)
 	{
-		while (lst)
+		newlst = ft_lstnew(f(lst->content));
+		if (!newlst)
 		{
-			newlst = ft_lstnew(f(lst->content));
-			if (!newlst)
-			{
-				ft_lstclear(&head, del);
-				return (0);
-			}
-			ft_lstadd_back(&head, newlst);
-			lst = lst -> next;
+			ft_lstclear(&head, del);
+			return (0);
 		}
+		ft_lstadd_back(&head, newlst);
+		lst = lst->next;
 	}
 	newlst = 0;
 	return (head);
