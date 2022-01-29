@@ -35,5 +35,9 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	num *= sign;
+	if ((sign == 1) && (num >= 9223372036854775807))
+		return (-1);
+	else if ((sign == -1) && (num < -9223372036854775808))
+		return (0);
 	return ((int)num);
 }
