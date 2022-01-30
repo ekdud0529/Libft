@@ -37,13 +37,19 @@ SRCS_B = \
 OBJS = $(SRCS:.c=.o)
 OBJS_B = $(SRCS_B:.c=.o)
 
+ifdef BONUS_T
+	OBJS_ALL = $(OBJS) $(OBJS_B)
+else
+	OBJS_ALL = $(OBJS)
+endif
+
 all : $(NAME)
 
 .c.o : $(SRCS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-bonus : $(OBJS) $(OBJS_B)
-	$(AR) $(NAME) $^
+bonus : 
+	make BONUS_T = 1 all
 
 $(NAME) : $(OBJS)
 	$(AR) $@ $^	
@@ -54,6 +60,6 @@ clean :
 fclean : clean
 	$(RM) $(NAME)
 
-re : clean all
+re : fclean all
 
 .PHONY: all clean fclean re bonus
