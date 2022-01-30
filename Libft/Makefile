@@ -49,10 +49,10 @@ all : $(NAME)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 bonus : 
-	make BONUS_T = 1 all
+	make BONUS_T=1
 
 $(NAME) : $(OBJS_ALL)
-	$(AR) $@ $^	
+	$(AR) $(NAME) $(OBJS_ALL)	
 
 clean :
 	$(RM) $(OBJS) $(OBJS_B)
