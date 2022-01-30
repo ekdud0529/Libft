@@ -51,7 +51,7 @@ all : $(NAME)
 bonus : 
 	make BONUS_T = 1 all
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS_ALL)
 	$(AR) $@ $^	
 
 clean :
