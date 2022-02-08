@@ -12,8 +12,8 @@
 
 #include "libft.h"
 
-int		get_num_len(long long n);
-void	mk_str(char *str, int len, long long num);
+static int		get_num_len(long long n);
+static void		mk_str(char *str, int len, long long num);
 
 char	*ft_itoa(int n)
 {
@@ -37,7 +37,7 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-int	get_num_len(long long n)
+static int	get_num_len(long long n)
 {
 	int	len;
 
@@ -54,7 +54,7 @@ int	get_num_len(long long n)
 	return (len);
 }
 
-void	mk_str(char *str, int len, long long num)
+static void	mk_str(char *str, int len, long long num)
 {
 	str[len] = '\0';
 	if (num == 0)

@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int		get_word_cnt(char *str, char c);
-char	*ft_mk_str(int start, int end, char *str);
-void	str_free(char **str, int index);
-void	mk_word(char **str, char *s, char c);
+static int		get_word_cnt(char *str, char c);
+static char	*ft_mk_str(int start, int end, char *str);
+static void	str_free(char **str, int index);
+static void	mk_word(char **str, char *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
@@ -30,7 +30,7 @@ char	**ft_split(char const *s, char c)
 	return (str);
 }
 
-void	mk_word(char **str, char *s, char c)
+static void	mk_word(char **str, char *s, char c)
 {
 	size_t	end;
 	size_t	i;
@@ -59,7 +59,7 @@ void	mk_word(char **str, char *s, char c)
 	return ;
 }
 
-void	str_free(char **str, int index)
+static void	str_free(char **str, int index)
 {
 	while (index)
 	{
@@ -71,7 +71,7 @@ void	str_free(char **str, int index)
 	str = 0;
 }
 
-char	*ft_mk_str(int start, int end, char *str)
+static char	*ft_mk_str(int start, int end, char *str)
 {
 	char	*s;
 	int		i;
@@ -90,7 +90,7 @@ char	*ft_mk_str(int start, int end, char *str)
 	return (s);
 }
 
-int	get_word_cnt(char *str, char c)
+static int	get_word_cnt(char *str, char c)
 {
 	int	cnt;
 

@@ -38,9 +38,9 @@ OBJS = $(SRCS:.c=.o)
 OBJS_B = $(SRCS_B:.c=.o)
 
 ifdef BONUS_T
-	OBJS_ALL = $(OBJS) $(OBJS_B)
+	OBJS_TOTAL = $(OBJS) $(OBJS_B)
 else
-	OBJS_ALL = $(OBJS)
+	OBJS_TOTAL = $(OBJS)
 endif
 
 all : $(NAME)
@@ -51,11 +51,11 @@ all : $(NAME)
 bonus : 
 	make BONUS_T=1
 
-$(NAME) : $(OBJS_ALL)
-	$(AR) $(NAME) $(OBJS_ALL)	
+$(NAME) : $(OBJS_TOTAL)
+	$(AR) $(NAME) $(OBJS_TOTAL)	
 
 clean :
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS_TOTAL)
 
 fclean : clean
 	$(RM) $(NAME)
